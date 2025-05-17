@@ -1,90 +1,324 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://latex.vercel.app/style.min.css" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.77">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000}
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000; min-height: 23.0px}
-    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; color: #0000ff; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p7 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; color: #f6000b; -webkit-text-stroke: #0b000b}
-    p.p8 {margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px Times; color: #0000ff; -webkit-text-stroke: #00000b}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; color: #00000b}
-    span.s3 {text-decoration: underline ; font-kerning: none; color: #0000ff}
-    span.s4 {font: 18.0px Times; text-decoration: underline ; font-kerning: none; color: #0000ff}
-    span.s5 {font-kerning: none; color: #00000b; -webkit-text-stroke: 0px #000000}
-    span.s6 {text-decoration: underline ; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #0000ff}
-    span.s7 {text-decoration: underline ; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #00000b}
-    span.s8 {font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #00000b}
-    span.s9 {font-kerning: none; color: #0b0b0b; -webkit-text-stroke: 0px #00000b}
-    span.s10 {font-kerning: none; color: #0b000b; -webkit-text-stroke: 0px #000000}
-    span.s11 {font-kerning: none; color: #0b000b}
-    span.s12 {font-kerning: none; color: #000000}
-    span.s13 {text-decoration: underline ; font-kerning: none}
-    span.s14 {font: 18.0px Times; text-decoration: underline ; font-kerning: none; color: #0000ff; -webkit-text-stroke: 0px #00000b}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yunbei Xu (许云贝) - AI & Math Researcher</title>
+  <link rel="stylesheet" href="https://latex.vercel.app/style.min.css">
+  <style>
+    body {
+      line-height: 1.6;
+      color: #333; /* Standard dark text for light background */
+      /* Fancier light background related to universe/intelligence */
+      background-color: #f4f8ff; /* A very light, cool off-white */
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(200, 210, 255, 0.2) 0.5px, transparent 1px),
+        radial-gradient(circle at 80% 70%, rgba(200, 210, 255, 0.2) 0.5px, transparent 1px),
+        radial-gradient(circle at 30% 80%, rgba(210, 220, 255, 0.15) 0.5px, transparent 1px),
+        radial-gradient(circle at 60% 30%, rgba(210, 220, 255, 0.15) 0.5px, transparent 1px),
+        linear-gradient(315deg, rgba(220, 225, 255, 0.05) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(220, 225, 255, 0.05) 25%, transparent 25%);
+      background-size: 50px 50px, 60px 60px, 40px 40px, 55px 55px, 20px 20px, 20px 20px; /* Different sizes for variation */
+      background-position: 0 0, 25px 25px, 10px 30px, 30px 10px, 0 0, 10px 10px;
+      font-family: 'Times New Roman', Times, serif; /* Consistent with latex.css */
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto; /* Added more top/bottom margin */
+      padding: 25px 30px; /* Increased padding */
+      background-color: #ffffff; /* Clean white for content readability */
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+    }
+    header {
+      border-bottom: 2px solid #e0e0e0; /* Lighter border */
+      margin-bottom: 2em;
+      padding-bottom: 1em;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 0.2em;
+      color: #2c3e50; /* A deep, sophisticated blue-grey */
+      font-size: 2.4em;
+    }
+    header .contact-info p {
+      margin: 0.3em 0;
+      font-size: 1.1em;
+      color: #555; /* Standard grey for secondary text */
+    }
+    header .contact-info a {
+      color: #0056b3; /* Standard link blue */
+    }
+    header .contact-info a:hover {
+      color: #003d80;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 2.5em 0; /* Increased bottom margin */
+      text-align: center;
+    }
+    nav ul li {
+      display: inline-block;
+      margin: 0 12px; /* Adjusted spacing */
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #0056b3; /* Standard link blue for nav */
+      font-size: 1.1em;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    nav ul li a:hover {
+      color: #003d80;
+      background-color: #e9ecef; /* Light grey hover background */
+      text-decoration: none;
+    }
+    h2 {
+      color: #2c3e50; /* Same as H1 for consistency */
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.4em; /* Increased padding */
+      margin-top: 2.5em; /* Increased top margin */
+      margin-bottom: 1.2em; /* Increased bottom margin */
+      font-size: 1.9em; /* Slightly larger H2 */
+    }
+    .section-intro {
+        font-size: 1.1em;
+        margin-bottom: 1.5em;
+        color: #444;
+    }
+    .current-role {
+        font-weight: bold;
+        color: #28a745; /* A clear green */
+    }
+    .background-list ul, .publications-list ul, #group-members ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .background-list li, .publications-list li, #group-members li {
+      margin-bottom: 1.2em; /* Increased spacing */
+      padding: 10px 15px; /* Padding around list items */
+      border-left: 3px solid #007bff; /* Blue accent border */
+      background-color: #f8f9fa; /* Very light grey background for items */
+      border-radius: 0 4px 4px 0;
+    }
+    #group-members li {
+      font-size: 1.05em;
+    }
+    .background-list .degree, .publications-list .publication-title {
+      font-weight: bold;
+      color: #333;
+    }
+    .background-list .institution, .publications-list .authors {
+      font-style: italic;
+      color: #555;
+    }
+    .background-list .advisor, .publications-list .venue {
+      margin-left: 20px; /* Keep indentation */
+      color: #444;
+    }
+    .publications-list .publication-title a {
+      text-decoration: none;
+      color: #0056b3; /* Standard link blue */
+    }
+    .publications-list .publication-title a:hover {
+      color: #003d80;
+      text-decoration: underline;
+    }
+    .publications-list .venue a,
+    .publications-list .publication-meta a { /* Code links */
+      color: #0069d9; /* Slightly brighter blue for code links */
+      margin-left: 8px;
+    }
+    .publications-list .venue a:hover,
+    .publications-list .publication-meta a:hover {
+      color: #004085;
+    }
+    .publications-list .awards {
+      font-weight: bold;
+      color: #b26a00; /* A more subtle, burnished gold/orange */
+      margin-left: 20px;
+      background-color: #fff3cd; /* Light yellow background for awards */
+      padding: 3px 8px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-top: 0.4em;
+    }
+    .publication-note {
+        font-size: 0.9em;
+        color: #666;
+        margin-left: 20px;
+    }
+    #teaching p {
+      color: #444;
+    }
+    #teaching a {
+      color: #0056b3;
+    }
+    #teaching a:hover {
+      color: #003d80;
+    }
+    hr {
+      border: 0;
+      border-top: 1px dashed #ccc;
+      margin: 0.8em 20px; /* Increased margin for HR */
+    }
+    footer {
+      margin-top: 3em;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em; /* Added bottom padding */
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    /* Ensure latex.vercel.app styles are compatible */
+    .latex-font, p, li, div {
+        color: inherit;
+    }
+    em, .latex-font em {
+        color: inherit;
+        font-style: italic;
+    }
+    strong, .latex-font strong {
+        color: inherit;
+        font-weight: bold;
+    }
+    a {
+        color: #0056b3; /* Default link color */
+    }
+    a:hover {
+        color: #003d80; /* Default link hover color */
+    }
   </style>
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Yunbei Xu (许云贝)</b></span></h1>
-<p class="p2"><span class="s1">Email: yunbei [at] nus.edu.sg</span></p>
-<p class="p2"><span class="s1">I am a Presidential Young Professor in the Department of Industrial Systems Engineering and Management at the National University of Singapore.<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">My research interests include Artificial Intelligence, Decision Science, and Physics.<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">I am looking for motivated PhD Students and Postdocs to join my research group.</span></p>
-<p class="p3"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><b>Background</b></span></p>
-<p class="p2"><span class="s1">Postdoc, Massachusetts Institute of Technology</span></p>
-<p class="p2"><span class="s1">   Laboratory for Information and Decision Systems</span></p>
-<p class="p4"><span class="s2">   Advisor: <a href="https://www.mit.edu/~rakhlin/"><span class="s3">Sasha Rakhlin</span></a></span></p>
-<p class="p2"><span class="s1">Doctor of Philosophy, Columbia University</span></p>
-<p class="p2"><span class="s1">   Graduate School of Business</span></p>
-<p class="p2"><span class="s1">   Advisor: <a href="https://www0.gsb.columbia.edu/faculty/azeevi/"><span class="s4">Assaf Zeevi</span></a></span></p>
-<p class="p2"><span class="s1">Bachelor of Science, Peking University</span></p>
-<p class="p2"><span class="s1">   Department of Pure Mathematics</span></p>
-<p class="p2"><span class="s1">   with highest honor</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Research</b></span></h2>
-<p class="p6"><span class="s5">•  <a href="https://arxiv.org/abs/2410.05117"><span class="s6">Assouad, Fano, and Le Cam with Interaction: A Unifying Lower Bound Framework and Characterization for Bandit Learnability</span></a></span></p>
-<p class="p2"><span class="s1">   with Fan Chen, Dylan J Foster, Yanjun Han, Jian Qian, and Alexander Rakhlin. </span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>short version in<b><i> Conference on Neural Information Processing Systems (NeurIPS) 2024.</i></b></span></p>
-<p class="p7"><span class="s10">   </span><span class="s11"><b>- </b></span><span class="s1"><b>Spotlight</b></span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>journal version in preparation.<b><i></i></b></span></p>
-<p class="p6"><span class="s5">•  <a href="https://arxiv.org/abs/2405.20451"><span class="s6">Statistical Properties of Robust Satisficing</span></a></span></p>
-<p class="p2"><span class="s1">   with Zhiyi Li and Ruohan Zhan. </span></p>
-<p class="p2"><span class="s1">   <b><i>- International Conference on Machine Learning (ICML) 2024.</i></b></span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>journal version in preparation.<b><i></i></b></span></p>
-<p class="p6"><span class="s5">•  <a href="https://arxiv.org/abs/2502.09900"><span class="s6">Thompson Sampling for Repeated Newsvendor</span></a></span></p>
-<p class="p2"><span class="s1">   with Weizhou Zhang, Chen Li, Hanzhang Qin, and Ruihao Zhu. </span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>conference version submitted.<b><i></i></b></span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>journal version in preparation.<b><i></i></b></span></p>
-<p class="p2"><span class="s2">•  <a href="https://arxiv.org/abs/2310.00806"><span class="s7">Bayesian Design Principles for Frequentist Sequential Learning</span></a></span><span class="s8"> </span><span class="s9">(</span><span class="s1">this is the arXiv link to the full version, which is the authors’ recommended version</span><span class="s9">)</span></p>
-<p class="p2"><span class="s1">   with Assaf Zeevi. </span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>short version in<b><i> International Conference on Machine Learning (ICML) 2023. </i></b><a href="https://github.com/xuyunbei/MAB-code"><span class="s4">Code</span></a></span></p>
-<p class="p7"><span class="s10">   </span><span class="s11"><b>- </b></span><span class="s1"><b>ICML Outstanding Paper Award</b></span></p>
-<p class="p7"><span class="s11"><b><span class="Apple-converted-space">   </span></b></span><span class="s12"><b>-</b></span><span class="s11"><b> </b></span><span class="s1"><b>INFORMS George Nicholson Student Paper Competition, First Place</b></span></p>
-<p class="p7"><span class="s11"><b><span class="Apple-converted-space">   </span>- </b></span><span class="s1"><b>Applied Probability Society Best Student Paper Award, Finalist</b></span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>Major Revsion at a top journal.<b><i></i></b></span></p>
-<p class="p8"><span class="s5">•  <a href="https://arxiv.org/abs/2011.06186"><span class="s7">Towards Optimal Problem Dependent Generalization Error Bounds in Statistical Learning Theory</span></a></span></p>
-<p class="p2"><span class="s1">   with Assaf Zeevi. </span></p>
-<p class="p2"><span class="s1">   <b><i>- Mathematics of Operations Research, 2024.</i></b></span></p>
-<p class="p7"><span class="s10">   </span><span class="s11"><b>- </b></span><span class="s1"><b>Applied Probability Society Best Student Paper Award, Finalist</b></span></p>
-<p class="p8"><span class="s5">   <a href="https://proceedings.neurips.cc/paper/2020/hash/174f8f613332b27e9e8a5138adb7e920-Abstract.html"><span class="s7">Towards Problem-dependent Optimal Learning Rates</span></a></span></p>
-<p class="p2"><span class="s1">   with Assaf Zeevi.</span></p>
-<p class="p2"><span class="s1">   <b><i>- Conference on Neural Information Processing Systems (NeurIPS) 2020.</i></b></span></p>
-<p class="p7"><span class="s10">   </span><span class="s11"><b>- </b></span><span class="s1"><b>Spotlight (top 2.9%)</b></span></p>
-<p class="p4"><span class="s2">•  <a href="https://arxiv.org/abs/2007.07876"><span class="s3">Upper Counterfactual Confidence Bounds: a New Optimism Principle for Contextual Bandits</span></a></span></p>
-<p class="p2"><span class="s1">   with Assaf Zeevi. </span></p>
-<p class="p2"><span class="s1">   <b><i>- </i></b>Major Revision at a top journal.<b><i></i></b></span></p>
-<p class="p8"><span class="s5">•  <a href="https://arxiv.org/abs/1811.08937"><span class="s7">Acceleration of Primal-Dual Methods by Preconditioning and Simple Subproblem Procedures</span></a></span><span class="s13"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1">   with Yanli Liu and Wotao Yin. </span></p>
-<p class="p2"><span class="s1">   <b><i>- Journal of Scientific Computing, 2021.</i></b> <a href="https://github.com/xuyunbei/Inexact-preconditioning"><span class="s14">Code</span></a></span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Teaching</b></span></h2>
-<p class="p2"><span class="s1">Teaching Assistant: <a href="https://sites.google.com/view/statphysics-markets-algorithms/home"><span class="s14"><i>Statistical Physics, Markets and Algorithms</i></span></a> (Fall 2019, instructed by Yash Kanoria)</span></p>
-</body>
-</html> 
+  <div class="container">
+    <header>
+      <h1>Yunbei Xu (许云贝)</h1>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:yunbei@nus.edu.sg">yunbei [at] nus.edu.sg</a></p>
+        <p class="current-role">Presidential Young Professor</p>
+        <p>National University of Singapore</p>
+      </div>
+    </header>
 
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#group-members">Group</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>About Me</h2>
+        <p class="section-intro">My research spans Artificial Intelligence, Decision Science, and Physics, aiming to understand intelligence and the universe through mathematics.</p>
+        <p>I am looking for motivated PhD Students and Postdocs to join my research group.</p>
+      </section>
+
+      <section id="background" class="background-list">
+        <h2>Background</h2>
+        <ul>
+          <li>
+            <span class="degree">Postdoc</span>, Massachusetts Institute of Technology
+            <div class="institution">Laboratory for Information and Decision Systems</div>
+            <div class="advisor">Advisor: <a href="https://www.mit.edu/~rakhlin/">Sasha Rakhlin</a></div>
+          </li>
+          <li>
+            <span class="degree">Doctor of Philosophy</span>, Columbia University
+            <div class="institution">Graduate School of Business, Decision Science Area</div>
+            <div class="advisor">Advisor: <a href="https://www0.gsb.columbia.edu/faculty/azeevi/">Assaf Zeevi</a></div>
+          </li>
+          <li>
+            <span class="degree">Bachelor of Science</span>, Peking University
+            <div class="institution">Department of Pure Mathematics</div>
+            <div class="advisor">with highest honor</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="group-members">
+        <h2>Group Members</h2>
+        <ul>
+          <li>Shaojie Li, Yujie Liu, Yuzhe Yuan, Zhiyi Li</li>
+        </ul>
+      </section>
+
+      <section id="research" class="publications-list">
+        <h2>Research</h2>
+        <ul>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2410.05117">Assouad, Fano, and Le Cam with Interaction: A Unifying Lower Bound Framework and Characterization for Bandit Learnability</a></p>
+            <p class="authors">with Fan Chen, Dylan J Foster, Yanjun Han, Jian Qian, and Alexander Rakhlin.</p>
+            <p class="venue">Short version in <em>Conference on Neural Information Processing Systems (NeurIPS) 2024.</em></p>
+            <p class="awards">Spotlight</p>
+            <p class="publication-note">Journal version in preparation.</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2405.20451">Statistical Properties of Robust Satisficing</a></p>
+            <p class="authors">with Zhiyi Li and Ruohan Zhan.</p>
+            <p class="venue"><em>International Conference on Machine Learning (ICML) 2024.</em></p>
+            <p class="publication-note">Journal version in preparation.</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2502.09900">Thompson Sampling for Repeated Newsvendor</a></p>
+            <p class="authors">with Weizhou Zhang, Chen Li, Hanzhang Qin, and Ruihao Zhu.</p>
+            <p class="publication-note">Conference version submitted. Journal version in preparation.</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2310.00806">Bayesian Design Principles for Frequentist Sequential Learning</a></p>
+            <p class="authors">with Assaf Zeevi.</p>
+            <p class="venue">Short version in <em>International Conference on Machine Learning (ICML) 2023.</em> <a href="https://github.com/xuyunbei/MAB-code">Code</a></p>
+            <p class="awards">ICML Outstanding Paper Award</p>
+            <p class="awards">INFORMS George Nicholson Student Paper Competition, First Place</p>
+            <p class="awards">Applied Probability Society Best Student Paper Award, Finalist</p>
+            <p class="publication-note">Major Revision at a top journal. (arXiv link is the recommended full version)</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2011.06186">Towards Optimal Problem Dependent Generalization Error Bounds in Statistical Learning Theory</a></p>
+            <p class="authors">with Assaf Zeevi.</p>
+            <p class="venue"><em>Mathematics of Operations Research, 2024.</em></p>
+            <p class="awards">Applied Probability Society Best Student Paper Award, Finalist</p>
+            <hr>
+            <p class="publication-title" style="margin-top:0.5em;"><a href="https://proceedings.neurips.cc/paper/2020/hash/174f8f613332b27e9e8a5138adb7e920-Abstract.html">Towards Problem-dependent Optimal Learning Rates</a></p>
+            <p class="authors" style="margin-top:-0.8em;">with Assaf Zeevi.</p>
+            <p class="venue" style="margin-top:-0.8em;"><em>Conference on Neural Information Processing Systems (NeurIPS) 2020.</em></p>
+            <p class="awards" style="margin-top:-0.8em;">Spotlight (top 2.9%)</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2007.07876">Upper Counterfactual Confidence Bounds: a New Optimism Principle for Contextual Bandits</a></p>
+            <p class="authors">with Assaf Zeevi.</p>
+            <p class="publication-note">Major Revision at a top journal.</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/1811.08937">Acceleration of Primal-Dual Methods by Preconditioning and Simple Subproblem Procedures</a></p>
+            <p class="authors">with Yanli Liu and Wotao Yin.</p>
+            <p class="venue"><em>Journal of Scientific Computing, 2021.</em> <a href="https://github.com/xuyunbei/Inexact-preconditioning">Code</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <p> Instructor: Stochastic Models; Decision Models (NUS)</p>
+        <p>Assistant: <a href="https://sites.google.com/view/statphysics-markets-algorithms/home"><em>Statistical Physics, Markets and Algorithms</em></a> (Fall 2019, instructed by Yash Kanoria)</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="currentYear"></span> Yunbei Xu. Last updated: <span id="lastUpdated"></span>.</p>
+      <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('lastUpdated').textContent = 'October 2024'; // Update this manually or with a build script
+      </script>
+    </footer>
+  </div>
+</body>
+</html>
