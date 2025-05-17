@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Academic Genealogy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0efeb;
+            padding: 20px;
+            color: #333;
+        }
+
+        .genealogy-tree, .genealogy-tree ul {
+            list-style-type: none;
+            padding-left: 0;
+            position: relative;
+        }
+
+        .genealogy-tree ul {
+            padding-left: 35px; /* Indentation for children */
+            margin-left: 10px; /* Space for the vertical line */
+        }
+
+        .genealogy-tree li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px; /* Space for the horizontal connector */
+        }
+        
+        /* Vertical connector line for children groups */
+        .genealogy-tree ul::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0; /* Aligns with the start of the indented children block */
+            width: 1px;
+            background-color: #ccc;
+        }
+
+        /* Horizontal connector line from parent item to its children group's vertical line */
+        .genealogy-tree li::before {
+            content: "";
+            position: absolute;
+            top: 1.2em; /* Adjust to align with text vertically */
+            left: 0px; 
+            width: 20px; /* Length of the horizontal line */
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        /* Remove connector for the very first item in the tree */
+        .genealogy-tree > li::before {
+            display: none;
+        }
+        /* Remove padding for the very first item as it has no connector */
+        .genealogy-tree > li {
+            padding-left: 0;
+        }
+
+        /* If an li is the last child, shorten the vertical line of its parent ul */
+        .genealogy-tree li:last-child > ul::before {
+             height: 1.2em; /* Stop at the connection point of the last child */
+        }
+
+
+        .person-node {
+            border: 1px solid #b0a0b0;
+            background-color: #f9f7f9;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            min-width: 250px; /* Ensure nodes have some minimum width */
+        }
+
+        .person-node .name {
+            font-weight: bold;
+            color: #0000CD;
+            text-decoration: none;
+        }
+        .person-node .name:hover {
+            text-decoration: underline;
+        }
+
+        .person-node .details {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .person-node .thesis {
+            font-size: 0.9em;
+            color: #333;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        h1 {
+            color: #444;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mathematics Genealogy</h1>
+    <ul class="genealogy-tree">
+        <ul> <!-- Yunbei Xu -->
+            <div class="person-node">
+                <a href="#" class="name">Yunbei Xu</a>, Columbia University (2023)<br>
+                <span class="thesis">Algorithm Design and Localization Analysis in Sequential and Stiatistical Learning</span>
+            </div>
+        <li> <!-- Assaf Zeevi -->
+            <div class="person-node">
+                <a href="#" class="name">Assaf Zeevi</a>, Stanford University (2001)<br>
+                <span class="thesis">Characterization and Estimation of Rare Events via Extreme Values</span>
+            </div>
+            <li> <!-- Peter Glynn -->
+                <li>
+                    <div class="person-node">
+                        <a href="#" class="name">Peter Glynn</a>, Stanford University (1982)<br>
+                        <span class="thesis">Simulation Output Analysis for General State Space Markov Chains</span>
+                    </div>
+                    <li> <!-- Donald Iglehart -->
+                        <li>
+                            <div class="person-node">
+                                <a href="#" class="name">Donald Iglehart</a>, Stanford University (1961)<br>
+                                <span class="thesis">Dynamic Programming and Stationary Analysis of Inventory Problems.</span>
+                            </div>
+                            <lli> <!-- Herbert Scarf -->
+                                <li>
+                                    <div class="person-node">
+                                        <a href="#" class="name">Herbert Scarf</a>, Princeton University (1954)<br>
+                                        <span class="thesis">Differential Operators on Manifolds and Applications to Stochastic Processes</span>
+                                    </div>
+                                    <li> <!-- Salomon Bochner (Connection Point) -->
+                                        <li>
+                                            <div class="person-node">
+                                                <a href="#" class="name">Salomon Bochner</a>, University of Berlin (1921)<br>
+                                                <span class="thesis">On Orthogonal Systems of Analytic Functions</span>
+                                            </div>
+                                            <li> <!-- Erhard Schmidt -->
+                                                <li>
+                                                    <div class="person-node">
+                                                        <a href="#" class="name">Erhard Schmidt</a>, University of Göttingen (1905)<br>
+                                                        <span class="thesis">Expansion of Arbitrary Functions in Terms of Prescribed Function system</span>
+                                                    </div>
+                                                    <li> <!-- David Hilbert -->
+                                                        <li>
+                                                            <div class="person-node">
+                                                                <a href="#" class="name">David Hilbert</a>, University of Königsberg (1885)<br>
+                                                                <span class="thesis">On Invariant Properties of Special Binary forms, in Particular the Spherical Functions</span>
+                                                            </div>
+                                                            <li> <!-- Carl Louis Ferdinand von Lindemann -->
+                                                                <li>
+                                                                    <div class="person-node">
+                                                                        <a href="#" class="name">Carl Louis Ferdinand von Lindemann</a>, Friedrich Alexander University Erlangen–Nuremberg (1873)<br>
+                                                                        <span class="thesis">On Infinitesimal Motions and on Systems of Forces Under a General Projective Metric Determination</span>
+                                                                    </div>
+                                                                    <li> <!-- Felix Christian Klein -->
+                                                                        <li>
+                                                                            <div class="person-node">
+                                                                                <a href="#" class="name">Felix Christian Klein</a>, Rhenish Friedrich Wilhelm University of Bonn (1868)<br>
+                                                                                <span class="thesis">On the Transformation of the General Second-Degree Equation in Line Coordinates to Canonical Form</span>
+                                                                            </div>
+                                                                            <li> <!-- Klein's Advisors -->
+                                                                            
+                                                                                </li>
+                                                                                <li> <!-- Rudolf Otto Sigismund Lipschitz -->
+                                                                                    <div class="person-node">
+                                                                                        <a href="#" class="name">Rudolf Otto Sigismund Lipschitz</a>, University of Berlin (1853)<br>
+                                                                                        <span class="thesis">Determination of the Magnetic State Induced by Forces in an Ellipsoid</span>
+                                                                                    </div>
+                                                                                    <li> <!-- Johann Peter Gustav Lejeune Dirichlet -->
+                                                                                        <li>
+                                                                                            <div class="person-node">
+                                                                                                <a href="#" class="name">Johann Peter Gustav Lejeune Dirichlet</a>, Rhenish Friedrich Wilhelm University of Bonn (1827) <br>
+                                                                                                <span class="thesis">Partial Results on Fermat’s Last Theorem for Exponent 5</span>
+                                                                                            </div>
+                                                                                            <li> <!-- Dirichlet's Advisors -->
+                                                                                                <li> <!-- Siméon Denis Poisson -->
+                                                                                                    <div class="person-node">
+                                                                                                        <a href="#" class="name">Siméon Denis Poisson </a>, Ecole Polytechnique (1800)
+                                                                                                    </div>
+                                                                                                 
+                                                                                                <li> <!-- Jean Baptiste Joseph Fourier -->
+                                                                                                    <div class="person-node">
+                                                                                                        <a href="#" class="name">Jean Baptiste Joseph Fourier</a>, Ecole Normale (1795)
+                                                                                                    </div>
+                                                                                                    <li> <!-- Fourier's Advisors -->
+                                                                 <li>
+                                                                                                            <div class="person-node">
+                                                                                                                <a href="#" class="name">Pierre-Simon Laplace</a>, University of Caen Normandy (1769)<br>
+                                                                                                                <span class="thesis">Research on Integral Calculus of Infinitesimal and Finite Differences</span>
+                                                                                                            </div>
+                                                                                                        </li>                                       <li>
+                                                                                                            <div class="person-node">
+                                                                                                                <a href="#" class="name">Joseph Louis Lagrange</a>, University of Turin (1754)<br>
+                                                                                                                <span class="thesis">Epistolary Correspondence on the Calculus of Variations</span>
+                                                                                                            </div>
+                                                                                                        </li>
+                                                                                                        
+                                                                                                    </li>
+                                                                                                     <li> <!-- Leonhard Euler -->
+                                                                                                    <div class="person-node">
+                                                                                                        <a href="#" class="name">Leonhard Euler</a>, University of Basel (1726)<br>
+                                                                                                        <span class="thesis">A Physical Dissertation on Sound</span>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                            </li>
+                                                                                             <li> <!-- Johann Bernoulli -->
+                                                                                                    <div class="person-node">
+                                                                                                        <a href="#" class="name">Johann Bernoulli</a>, University of Basel (1690)<br>
+                                                                                                        <span class="thesis">Dissertation on Effervescence and Fermentation</span>
+                                                                                                
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                        </li>
+                                                                                        <li> <!-- Jacob Bernoulli -->
+                                                                                                    <div class="person-node">
+                                                                                                        <a href="#" class="name">Jacob Bernoulli</a>, University of Basel (1676)<br>
+                                                                                                        <span class="thesis">A Comparison of the First and Second Adam</span>
+                                                                                                    </div>
+                                                                                                </li>
+                                                                                    </li>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
