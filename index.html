@@ -8,46 +8,49 @@
   <style>
     body {
       line-height: 1.6;
-      color: #333; /* Standard dark text for light background */
-      /* Fancier light background related to universe/intelligence */
-      background-color: #f4f8ff; /* A very light, cool off-white */
+      color: #333;
+      /* New light background: Galaxy & Neuron inspired */
+      background-color: #f7f9fc; /* Very light, slightly cool base */
       background-image:
-        radial-gradient(circle at 10% 20%, rgba(200, 210, 255, 0.2) 0.5px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(200, 210, 255, 0.2) 0.5px, transparent 1px),
-        radial-gradient(circle at 30% 80%, rgba(210, 220, 255, 0.15) 0.5px, transparent 1px),
-        radial-gradient(circle at 60% 30%, rgba(210, 220, 255, 0.15) 0.5px, transparent 1px),
-        linear-gradient(315deg, rgba(220, 225, 255, 0.05) 25%, transparent 25%),
-        linear-gradient(45deg, rgba(220, 225, 255, 0.05) 25%, transparent 25%);
-      background-size: 50px 50px, 60px 60px, 40px 40px, 55px 55px, 20px 20px, 20px 20px; /* Different sizes for variation */
-      background-position: 0 0, 25px 25px, 10px 30px, 30px 10px, 0 0, 10px 10px;
-      font-family: 'Times New Roman', Times, serif; /* Consistent with latex.css */
+        /* Faint Neuron-like lines */
+        linear-gradient(135deg, rgba(180, 190, 220, 0.05) 2px, transparent 2px),
+        linear-gradient(225deg, rgba(180, 190, 220, 0.05) 2px, transparent 2px),
+        /* Soft Galaxy/Nebula patches */
+        radial-gradient(ellipse at 20% 30%, rgba(200, 210, 255, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 70%, rgba(210, 200, 240, 0.07) 0%, transparent 70%),
+        /* Scattered faint "stars" */
+        radial-gradient(circle at 15% 85%, rgba(220, 220, 255, 0.1) 1px, transparent 2px),
+        radial-gradient(circle at 75% 15%, rgba(220, 220, 255, 0.1) 1px, transparent 2px);
+      background-size: 80px 80px, 80px 80px, 100% 100%, 100% 100%, 100px 100px, 120px 120px;
+      background-attachment: fixed; /* Keeps pattern smooth on scroll */
+      font-family: 'Times New Roman', Times, serif;
     }
     .container {
-      max-width: 900px;
-      margin: 30px auto; /* Added more top/bottom margin */
-      padding: 25px 30px; /* Increased padding */
-      background-color: #ffffff; /* Clean white for content readability */
+      max-width: 1050px; /* Increased width for laptops */
+      margin: 25px auto; /* Slightly reduced top/bottom margin */
+      padding: 25px 35px; /* Adjusted padding */
+      background-color: #ffffff;
       border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer, more diffused shadow */
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Slightly enhanced shadow */
     }
     header {
-      border-bottom: 2px solid #e0e0e0; /* Lighter border */
-      margin-bottom: 2em;
+      border-bottom: 2px solid #e8e8e8; /* Slightly lighter border */
+      margin-bottom: 1.8em; /* Reduced margin */
       padding-bottom: 1em;
       text-align: center;
     }
     header h1 {
       margin-bottom: 0.2em;
-      color: #2c3e50; /* A deep, sophisticated blue-grey */
-      font-size: 2.4em;
+      color: #2c3e50;
+      font-size: 2.3em; /* Slightly adjusted H1 size */
     }
     header .contact-info p {
       margin: 0.3em 0;
-      font-size: 1.1em;
-      color: #555; /* Standard grey for secondary text */
+      font-size: 1.05em; /* Slightly adjusted font size */
+      color: #555;
     }
     header .contact-info a {
-      color: #0056b3; /* Standard link blue */
+      color: #0056b3;
     }
     header .contact-info a:hover {
       color: #003d80;
@@ -55,58 +58,66 @@
     nav ul {
       list-style-type: none;
       padding: 0;
-      margin: 0 0 2.5em 0; /* Increased bottom margin */
+      margin: 0 0 2em 0; /* Reduced bottom margin for nav */
       text-align: center;
     }
     nav ul li {
       display: inline-block;
-      margin: 0 12px; /* Adjusted spacing */
+      margin: 0 10px; /* Adjusted spacing */
     }
     nav ul li a {
       text-decoration: none;
       font-weight: bold;
-      color: #0056b3; /* Standard link blue for nav */
-      font-size: 1.1em;
-      padding: 6px 12px;
+      color: #0056b3;
+      font-size: 1.05em; /* Slightly adjusted font size */
+      padding: 5px 10px;
       border-radius: 4px;
       transition: background-color 0.2s, color 0.2s;
     }
     nav ul li a:hover {
       color: #003d80;
-      background-color: #e9ecef; /* Light grey hover background */
+      background-color: #e9ecef;
       text-decoration: none;
     }
-    h2 {
-      color: #2c3e50; /* Same as H1 for consistency */
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.4em; /* Increased padding */
-      margin-top: 2.5em; /* Increased top margin */
-      margin-bottom: 1.2em; /* Increased bottom margin */
-      font-size: 1.9em; /* Slightly larger H2 */
+    h2 { /* Section Titles */
+      color: #33475c; /* Slightly different shade for H2 */
+      border-bottom: 1px solid #dfe4ea;
+      padding-bottom: 0.3em;
+      margin-top: 2em;    /* Reduced top margin */
+      margin-bottom: 1em; /* Reduced bottom margin */
+      font-size: 1.7em;   /* Reduced font size for H2 */
     }
     .section-intro {
         font-size: 1.1em;
-        margin-bottom: 1.5em;
+        margin-bottom: 1.3em; /* Adjusted margin */
         color: #444;
     }
     .current-role {
         font-weight: bold;
-        color: #28a745; /* A clear green */
+        color: #28a745;
     }
-    .background-list ul, .publications-list ul, #group-members ul {
+    .background-list ul, .publications-list ul {
       list-style-type: none;
       padding-left: 0;
     }
-    .background-list li, .publications-list li, #group-members li {
-      margin-bottom: 1.2em; /* Increased spacing */
-      padding: 10px 15px; /* Padding around list items */
-      border-left: 3px solid #007bff; /* Blue accent border */
-      background-color: #f8f9fa; /* Very light grey background for items */
+    .background-list li, .publications-list li {
+      margin-bottom: 1em; /* Slightly reduced spacing */
+      padding: 10px 15px;
+      border-left: 3px solid #007bff;
+      background-color: #f8f9fa;
       border-radius: 0 4px 4px 0;
     }
-    #group-members li {
-      font-size: 1.05em;
+    /* Styles for the single-line group members paragraph */
+    #group-members p {
+        font-size: 1.05em;
+        color: #444;
+        background-color: #f8f9fa;
+        padding: 10px 15px;
+        border-left: 3px solid #007bff;
+        border-radius: 0 4px 4px 0;
+        margin-bottom: 1em; /* Consistent margin */
     }
+
     .background-list .degree, .publications-list .publication-title {
       font-weight: bold;
       color: #333;
@@ -116,20 +127,20 @@
       color: #555;
     }
     .background-list .advisor, .publications-list .venue {
-      margin-left: 20px; /* Keep indentation */
+      margin-left: 20px;
       color: #444;
     }
     .publications-list .publication-title a {
       text-decoration: none;
-      color: #0056b3; /* Standard link blue */
+      color: #0056b3;
     }
     .publications-list .publication-title a:hover {
       color: #003d80;
       text-decoration: underline;
     }
     .publications-list .venue a,
-    .publications-list .publication-meta a { /* Code links */
-      color: #0069d9; /* Slightly brighter blue for code links */
+    .publications-list .publication-meta a {
+      color: #0069d9;
       margin-left: 8px;
     }
     .publications-list .venue a:hover,
@@ -138,9 +149,9 @@
     }
     .publications-list .awards {
       font-weight: bold;
-      color: #b26a00; /* A more subtle, burnished gold/orange */
+      color: #b26a00;
       margin-left: 20px;
-      background-color: #fff3cd; /* Light yellow background for awards */
+      background-color: #fff3cd;
       padding: 3px 8px;
       border-radius: 3px;
       display: inline-block;
@@ -162,20 +173,18 @@
     }
     hr {
       border: 0;
-      border-top: 1px dashed #ccc;
-      margin: 0.8em 20px; /* Increased margin for HR */
+      border-top: 1px dashed #ced4da; /* Lighter dashed line */
+      margin: 0.7em 20px;
     }
     footer {
-      margin-top: 3em;
-      padding-top: 1.5em;
-      padding-bottom: 1.5em; /* Added bottom padding */
-      border-top: 1px solid #e0e0e0;
+      margin-top: 2.5em; /* Reduced margin */
+      padding-top: 1.3em;
+      padding-bottom: 1.3em;
+      border-top: 1px solid #e8e8e8;
       text-align: center;
       font-size: 0.9em;
       color: #777;
     }
-
-    /* Ensure latex.vercel.app styles are compatible */
     .latex-font, p, li, div {
         color: inherit;
     }
@@ -188,10 +197,10 @@
         font-weight: bold;
     }
     a {
-        color: #0056b3; /* Default link color */
+        color: #0056b3;
     }
     a:hover {
-        color: #003d80; /* Default link hover color */
+        color: #003d80;
     }
   </style>
 </head>
@@ -246,9 +255,7 @@
 
       <section id="group-members">
         <h2>Group Members</h2>
-        <ul>
-          <li>Shaojie Li, Yujie Liu, Yuzhe Yuan, Zhiyi Li</li>
-        </ul>
+        <p>Shaojie Li, Yujie Liu, Yuzhe Yuan, Zhiyi Li</p>
       </section>
 
       <section id="research" class="publications-list">
