@@ -90,33 +90,11 @@
     .publications-list .publication-title a:hover { color: #003d80; text-decoration: underline; }
     .publications-list .venue a, .publications-list .publication-meta a { color: #0069d9; margin-left: 8px; }
     .publications-list .venue a:hover, .publications-list .publication-meta a:hover { color: #004085; }
-    .publications-list .awards{
-  font-weight: bold;
-  color: #b26a00;
-  background-color: #fff3cd;
-  display: inline-block;
-  line-height: 1;
-  padding: 0.35em 0.6em;
-  border-radius: 0.4em;
-
-  /* IMPORTANT: remove these if you used flex/gap */
-  margin-left: 0;
-  margin-top: 0;
-}
-.publication-note{
-  margin: 0;
-  line-height: 1.35;
-  font-size: 0.9em;
-  color: #666;
-  margin-left: 20px; /* keep if you want indent */
-}
-
-.note-line{
-  display: flex;
-  align-items: baseline; /* or center */
-  gap: 0.5rem;
-  margin-top: 0.35rem;
-}
+    .publications-list .awards {
+      font-weight: bold; color: #b26a00; margin-left: 20px; background-color: #fff3cd;
+      padding: 3px 8px; border-radius: 3px; display: inline-block; margin-top: 0.4em;
+    }
+    .publication-note { font-size: 0.9em; color: #666; margin-left: 20px; }
 
     #teaching p { color: #444; }
     #teaching a { color: #0056b3; }
@@ -210,12 +188,9 @@
           <li>
             <p class="publication-title"><a href="https://openreview.net/pdf?id=tQgfqyT6If">Autoregressive Learning under Joint KL Analysis</a></p>
             <p class="authors">with Yuzhe Yuan and Ruohan Zhan.</p>
-            <p class="publication-note">
-  Submitted to <em>COLT 2026</em>.
-  <span class="note-line">
-    <span class="awards">Spotlight (top 4.3%)</span>
-    in <em>NeurIPS 2025 ML×OR Workshop</em>.
-  </span>
+            <p class="publication-note">Submitted to <em>COLT 2026</em>.</p>
+            <p>
+  <span class="awards">Spotlight (top 4.3%)</span><span class="workshop">in <em>NeurIPS 2025 ML×OR Workshop.</em></span>
 </p>
           </li>
           <li>
