@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yunbei Xu - NUS ISEM</title>
   <link rel="stylesheet" href="https://latex.vercel.app/style.min.css">
+html, body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
   <style>
     body {
       line-height: 1.4;
@@ -23,39 +29,76 @@
     }
 
     .container {
-      margin: 20px auto;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
-      box-sizing: border-box;
-      padding: 20px 15px;
-    }
+
+  width: min(1250px, calc(100% - 32px));
+
+  margin: 10px auto 20px auto;   /* smaller top margin */
+
+  background-color: #ffffff;
+
+  border-radius: 8px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+  box-sizing: border-box;
+
+  padding: 16px 24px;            /* less top padding */
+
+}
     @media (min-width: 768px) {
-      .container { padding: 25px 25px; max-width: 720px; }
-    }
-    @media (min-width: 992px) {
-      .container { padding: 25px 35px; max-width: 960px; }
-    }
-    @media (min-width: 1200px) {
-      .container { max-width: 1250px; }
-    }
+
+  .container {
+
+    padding: 20px 32px;
+
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .container {
+
+    width: min(1320px, calc(100% - 48px)); /* make page wider */
+
+  }
+
+}
 
     header {
-      border-bottom: 2px solid #e8e8e8;
-      margin-bottom: 1.7em;
-      padding-bottom: 1em;
-      text-align: center;
-    }
-    header h1 {
-      margin-bottom: 0.2em;
-      color: #2c3e50;
-      font-size: 2.3em;
-    }
+
+  border-bottom: 2px solid #e8e8e8;
+
+  margin-bottom: 1.2em;
+
+  padding-bottom: 0.7em;
+
+  text-align: center;
+
+}
+
+header h1 {
+
+  margin-top: 0;
+
+  margin-bottom: 0.15em;
+
+}
     header .contact-info p { margin: 0.3em 0; font-size: 1.05em; color: #555; }
     header .contact-info a { color: #0056b3; }
     header .contact-info a:hover { color: #003d80; }
 
-    nav ul { list-style-type: none; padding: 0; margin: 0 0 2em 0; text-align: center; }
+    nav ul {
+
+  list-style-type: none;
+
+  padding: 0;
+
+  margin: 0 0 1.2em 0;
+
+  text-align: center;
+
+}
     nav ul li { display: inline-block; margin: 0 10px; }
     nav ul li a {
       text-decoration: none; font-weight: bold; color: #0056b3; font-size: 1.05em;
