@@ -90,12 +90,13 @@
     .publications-list .publication-title a:hover { color: #003d80; text-decoration: underline; }
     .publications-list .venue a, .publications-list .publication-meta a { color: #0069d9; margin-left: 8px; }
     .publications-list .venue a:hover, .publications-list .publication-meta a:hover { color: #004085; }
+    .publication-list .award-line {display: flex;align-items: baseline;gap: 0.25em;margin: 0.6em 0 0;}
     .publications-list .awards {
       font-weight: bold; color: #b26a00; margin-left: 20px; background-color: #fff3cd;
       padding: 3px 8px; border-radius: 3px; display: inline-block; margin-top: 0.4em;
     }
-    .publication-note { font-size: 0.9em; color: #666; margin-left: 20px; }
-
+    .publication-note { font-size: 0.9em; color: #666; margin-left: 0; }
+    .publication-note em {font-style: italic;}
     #teaching p { color: #444; }
     #teaching a { color: #0056b3; }
     #teaching a:hover { color: #003d80; }
@@ -198,19 +199,18 @@ Renormalization
             <p class="authors">with Hongseok Namkoong, Isaac Scheinfeld, and Shunri Zheng.</p>
             <p class="publication-note">Working paper.</p>
           </li>
-          <li>
-            <p class="publication-title"><a href="https://arxiv.org/abs/2605.12316">Autoregressive Learning in Joint KL: Sharp Oracle Bounds and Lower Bounds</a></p>
-            <p class="authors">with Yuzhe Yuan and Ruohan Zhan.</p>
-            <p class="publication-note">Submitted to <em>NeurIPS 2026</em>.</p>
-            <p>
-  <span class="awards">Spotlight (top 4.3%)</span><span class="publication-note">in <em>NeurIPS 2025 ML×OR Workshop.</em></span>
-</p>
-          </li>
-          <li>
+           <li>
             <p class="publication-title"><a href="https://openreview.net/pdf?id=svG94LVjAO">Statistical Properties of Robust Learning under
 Distribution Shifts</a></p>
             <p class="authors">with Zhiyi Li, Xiaojia Mao, and Ruohan Zhan.</p>
             <p class="publication-note">To be submitted.</p>
+          </li>
+          <li>
+            <p class="publication-title"><a href="https://arxiv.org/abs/2605.12316">Autoregressive Learning in Joint KL: Sharp Oracle Bounds and Lower Bounds</a></p>
+            <p class="authors">with Yuzhe Yuan and Ruohan Zhan.</p>
+            <p class="publication-note">Submitted to <em>NeurIPS 2026</em>.</p>
+            <p class="award-line"><span class="awards">Spotlight (top 4.3%)</span> <span class="publication-note">in <em>NeurIPS 2025 ML×OR Workshop.</em></span>
+</p>
           </li>
           <li>
   <p class="publication-title"><a href="https://arxiv.org/abs/2605.05710">On the Blessing of Pre-training in Weak-to-Strong Generalization</a></p>
