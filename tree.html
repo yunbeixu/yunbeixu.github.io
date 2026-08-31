@@ -278,8 +278,10 @@
   </main>
 
   <footer>
-    Source: <a href="https://www.mathgenealogy.org/" target="_blank" rel="noopener noreferrer">Mathematics Genealogy Project</a>.
-    Names and adviser names link to MGP records when available.
+    Sources:
+    <a href="https://www.mathgenealogy.org/" target="_blank" rel="noopener noreferrer">Mathematics Genealogy Project</a>
+    and
+    <a href="https://academictree.org/" target="_blank" rel="noopener noreferrer">Academic Tree</a>.
   </footer>
 
   <script>
@@ -779,6 +781,40 @@
     const verticalGap = 88;
     const margin = 34;
 
+    const academicTreeProfiles = new Map([
+      ["alexander-rakhlin", "https://neurotree.org/neurotree/peopleinfo.php?pid=17001"],
+      ["peter-bartlett", "https://academictree.org/computerscience/peopleinfo.php?pid=184209"],
+      ["assaf-zeevi", "https://academictree.org/math/peopleinfo.php?pid=547559"],
+      ["thomas-cover", "https://academictree.org/etree/peopleinfo.php?pid=883934"],
+      ["peter-glynn", "https://academictree.org/etree/peopleinfo.php?pid=818562"],
+      ["norman-abramson", "https://academictree.org/etree/peopleinfo.php?pid=233183"],
+      ["donald-iglehart", "https://academictree.org/computerscience/peopleinfo.php?pid=743468"],
+      ["willis-harman", "https://academictree.org/etree/peopleinfo.php?pid=233184"],
+      ["herbert-scarf", "https://academictree.org/epidemiology/peopleinfo.php?pid=743451"],
+      ["samuel-karlin", "https://academictree.org/math/peopleinfo.php?pid=35868"],
+      ["karl-spangenberg", "https://academictree.org/physics/peopleinfo.php?pid=57521"],
+      ["salomon-bochner", "https://academictree.org/math/peopleinfo.php?pid=35870"],
+      ["william-everitt", "https://academictree.org/physics/peopleinfo.php?pid=57522"],
+      ["erhard-schmidt", "https://academictree.org/math/peopleinfo.php?pid=63167"],
+      ["frederic-blake", "https://academictree.org/physics/peopleinfo.php?pid=57523"],
+      ["david-hilbert", "https://academictree.org/math/peopleinfo.php?pid=1827"],
+      ["ernest-nichols", "https://academictree.org/physics/peopleinfo.php?pid=57524"],
+      ["ferdinand-lindemann", "https://academictree.org/math/peopleinfo.php?pid=7646"],
+      ["edward-nichols", "https://academictree.org/physics/peopleinfo.php?pid=57525"],
+      ["felix-klein", "https://academictree.org/math/peopleinfo.php?pid=7647"],
+      ["johann-listing", "https://academictree.org/math/peopleinfo.php?pid=80726"],
+      ["julius-pluecker", "https://academictree.org/math/peopleinfo.php?pid=7648"],
+      ["rudolf-lipschitz", "https://academictree.org/math/peopleinfo.php?pid=59309"],
+      ["christian-gerling", "https://academictree.org/math/peopleinfo.php?pid=7649"],
+      ["gustav-dirichlet", "https://academictree.org/math/peopleinfo.php?pid=59310"],
+      ["martin-ohm", "https://academictree.org/math/peopleinfo.php?pid=59311"],
+      ["carl-gauss", "https://academictree.org/math/peopleinfo.php?pid=7650"],
+      ["karl-langsdorf", "https://academictree.org/math/peopleinfo.php?pid=59312"],
+      ["johann-pfaff", "https://academictree.org/math/peopleinfo.php?pid=7651"],
+      ["abraham-kaestner", "https://academictree.org/math/peopleinfo.php?pid=624"],
+      ["christian-hausen", "https://academictree.org/math/peopleinfo.php?pid=625"]
+    ]);
+
     const personById = new Map(people.map(person => [person.id, person]));
     const nodesLayer = document.getElementById("nodes");
     const edgeLayer = document.getElementById("edges");
@@ -905,9 +941,15 @@
       const source = isMgpSource(person.source)
         ? person.source
         : "";
-      const sourceLinks = source
-        ? `<a class="source-tag" href="${source}" target="_blank" rel="noopener noreferrer">MGP</a>`
-        : "";
+      const academicTree = academicTreeProfiles.get(person.id) || "";
+      const sourceLinks = [
+        source
+          ? `<a class="source-tag" href="${source}" target="_blank" rel="noopener noreferrer">MGP</a>`
+          : "",
+        academicTree
+          ? `<a class="source-tag" href="${academicTree}" target="_blank" rel="noopener noreferrer">Academic Tree</a>`
+          : ""
+      ].join("");
       const personName = source
         ? `<a class="name" href="${source}" target="_blank" rel="noopener noreferrer">${person.name}</a>`
         : `<span class="name">${person.name}</span>`;
