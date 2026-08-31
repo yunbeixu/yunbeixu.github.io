@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Genealogy of Yunbei Xu</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20242a;
+      --muted: #626a73;
+      --paper: #fffdf9;
+      --page: #efede7;
+      --line: #627d98;
+      --postdoctoral: #8b5e34;
+      --border: #cfc9bf;
+      --accent: #203f78;
+      --shadow: 0 8px 22px rgba(39, 43, 48, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    header {
+      padding: 28px clamp(18px, 4vw, 56px) 20px;
+      background: linear-gradient(135deg, #fbfaf6, #e7e2d8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner,
+    main,
+    footer {
+      width: min(1180px, 100%);
+      margin-inline: auto;
+    }
+
+    h1 {
+      margin: 0;
+      color: #263b61;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.85rem, 4vw, 3.15rem);
+      font-weight: 650;
+      letter-spacing: -0.025em;
+    }
+
+    .subtitle {
+      max-width: 850px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    main { padding: 22px clamp(12px, 2.5vw, 30px) 36px; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .legend-item { display: inline-flex; align-items: center; gap: 7px; }
+    .legend-line { display: inline-block; width: 34px; border-top: 2px solid var(--line); }
+    .legend-line.postdoctoral { border-top-color: var(--postdoctoral); border-top-style: dashed; }
+
+    button {
+      border: 1px solid #9ea8b6;
+      border-radius: 7px;
+      background: #fff;
+      color: #263b61;
+      padding: 7px 11px;
+      font: inherit;
+      font-size: 0.83rem;
+      cursor: pointer;
+    }
+
+    button:hover { background: #f5f7fb; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #7aa7e8; outline-offset: 2px; }
+
+    #status {
+      color: var(--muted);
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    #viewport {
+      position: relative;
+      min-height: 560px;
+      height: calc(100vh - 285px);
+      overflow: auto;
+      background-color: #f8f6f1;
+      background-image:
+        linear-gradient(rgba(80, 93, 110, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(80, 93, 110, 0.055) 1px, transparent 1px);
+      background-size: 28px 28px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    #stage { position: relative; min-width: 100%; min-height: 100%; }
+    #edges, #nodes { position: absolute; inset: 0; }
+    #edges { overflow: visible; pointer-events: none; }
+
+    .edge {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 2;
+      opacity: 0.84;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .edge.postdoctoral {
+      stroke: var(--postdoctoral);
+      stroke-dasharray: 8 5;
+    }
+
+    .person-node {
+      position: absolute;
+      width: 330px;
+      padding: 12px 14px 11px;
+      background: var(--paper);
+      border: 1px solid #b8b1a7;
+      border-radius: 9px;
+      box-shadow: var(--shadow);
+    }
+
+    .person-node.root {
+      border: 2px solid #3f659d;
+      background: #f7faff;
+      box-shadow: 0 10px 26px rgba(32, 63, 120, 0.16);
+    }
+
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .name {
+      color: var(--accent);
+      font-weight: 750;
+      line-height: 1.25;
+      text-decoration: none;
+    }
+
+    .name:hover { text-decoration: underline; }
+
+    .year {
+      color: #69727e;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    .details {
+      margin-top: 4px;
+      color: #545c66;
+      font-size: 0.79rem;
+      line-height: 1.35;
+    }
+
+    .thesis {
+      margin-top: 7px;
+      color: #30353b;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .relationship-note {
+      margin-top: 7px;
+      padding-top: 7px;
+      border-top: 1px solid #e6e1d9;
+      color: #6a5741;
+      font-size: 0.73rem;
+      line-height: 1.35;
+    }
+
+    .advisers {
+      margin-top: 7px;
+      color: #626a73;
+      font-size: 0.71rem;
+      line-height: 1.35;
+    }
+
+    .advisers > span { display: block; }
+    .advisers a { color: #52647e; text-decoration: underline; text-decoration-color: #bac3cf; }
+    .advisers a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+    .source-tag {
+      display: inline-block;
+      margin-left: 5px;
+      color: #667085;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.035em;
+    }
+
+    .source-tag:hover { color: var(--accent); text-decoration: underline; }
+
+    footer {
+      padding: 0 clamp(18px, 4vw, 56px) 28px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    footer a { color: var(--accent); }
+
+    @media (max-width: 700px) {
+      header { padding-top: 22px; }
+      #viewport { height: 72vh; min-height: 480px; }
+      .person-node { width: 286px; }
+      .toolbar { align-items: flex-start; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      header, main, footer { width: 100%; }
+      #viewport { height: auto; overflow: visible; border: 0; }
+      .toolbar button { display: none; }
+      .person-node { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Academic Genealogy of Yunbei Xu</h1>
+      <p class="subtitle">
+        An academic genealogy of doctoral and postdoctoral supervision.
+        Lines run from a scholar to an adviser; shared ancestors appear once.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <div class="legend" aria-label="Relationship legend">
+        <span class="legend-item"><span class="legend-line"></span>doctoral adviser</span>
+        <span class="legend-item"><span class="legend-line postdoctoral"></span>postdoctoral adviser</span>
+      </div>
+      <div>
+        <span id="status" aria-live="polite"></span>
+        <button id="centerButton" type="button">Center on Yunbei Xu</button>
+      </div>
+    </div>
+
+    <section id="viewport" aria-label="Interactive academic genealogy">
+      <div id="stage">
+        <svg id="edges" aria-hidden="true"></svg>
+        <div id="nodes" role="list" aria-label="Scholars in the genealogy"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Source: <a href="https://www.mathgenealogy.org/" target="_blank" rel="noopener noreferrer">Mathematics Genealogy Project</a>.
+    Names and adviser names link to MGP records when available.
+  </footer>
+
+  <script>
+    "use strict";
+
+    const people = [
+      {
+        id: "yunbei-xu",
+        name: "Yunbei Xu",
+        degree: "PhD",
+        institution: "Columbia University",
+        country: "US",
+        year: 2023,
+        thesis: "Algorithm Design and Localization Analysis in Sequential and Statistical Learning",
+        order: 0,
+        advisers: [
+          {
+            id: "assaf-zeevi",
+            relation: "doctoral"
+          },
+          {
+            id: "alexander-rakhlin",
+            relation: "postdoctoral"
+          }
+        ]
+      },
+      {
+        id: "alexander-rakhlin",
+        name: "Alexander Rakhlin",
+        degree: "PhD",
+        institution: "Massachusetts Institute of Technology",
+        country: "US",
+        year: 2006,
+        thesis: "Applications of Empirical Processes in Learning Theory: Algorithmic Stability and Generalization Bounds",
+        source: "https://www.mathgenealogy.org/id.php?id=291962",
+        sourceLabel: "MGP",
+        order: 10,
+        advisers: [{
+          id: "peter-bartlett",
+          relation: "postdoctoral"
+        }]
+      },
+      {
+        id: "peter-bartlett",
+        name: "Peter L. Bartlett",
+        degree: "PhD",
+        institution: "University of Queensland",
+        country: "AU",
+        year: 1992,
+        thesis: "Computational Learning Theory and Neural Network Learning",
+        source: "https://www.mathgenealogy.org/id.php?id=218762",
+        sourceLabel: "MGP",
+        order: -15,
+        advisers: []
+      },
+      {
+        id: "assaf-zeevi",
+        name: "Assaf J. Zeevi",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 2001,
+        thesis: "Characterization and Estimation of Rare Events via Extreme Values",
+        source: "https://www.mathgenealogy.org/id.php?id=59434",
+        sourceLabel: "MGP",
+        order: -10,
+        advisers: [
+          {
+            id: "thomas-cover",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=59434"
+          },
+          {
+            id: "peter-glynn",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=59434"
+          }
+        ]
+      },
+      {
+        id: "thomas-cover",
+        name: "Thomas M. Cover",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 1964,
+        thesis: "Geometrical and Statistical Properties of Linear Threshold Devices",
+        source: "https://www.mathgenealogy.org/id.php?id=39910",
+        sourceLabel: "MGP",
+        order: -10,
+        advisers: [{
+          id: "norman-abramson",
+          relation: "doctoral",
+          evidence: "https://www.mathgenealogy.org/id.php?id=39910"
+        }]
+      },
+      {
+        id: "peter-glynn",
+        name: "Peter W. Glynn",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 1982,
+        thesis: "Simulation Output Analysis for General State Space Markov Chains",
+        source: "https://www.mathgenealogy.org/id.php?id=39913",
+        sourceLabel: "MGP",
+        order: 10,
+        advisers: [{ id: "donald-iglehart", relation: "doctoral" }]
+      },
+      {
+        id: "norman-abramson",
+        name: "Norman M. Abramson",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 1958,
+        thesis: "Application of ‘Comparison of Experiments’ to Radar Detection and Coding Problems",
+        source: "https://www.mathgenealogy.org/id.php?id=757",
+        sourceLabel: "MGP",
+        order: -20,
+        advisers: [{ id: "willis-harman", relation: "doctoral" }]
+      },
+      {
+        id: "donald-iglehart",
+        name: "Donald L. Iglehart",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 1961,
+        thesis: "Dynamic Programming and Stationary Analyses of Inventory Problems",
+        source: "https://www.mathgenealogy.org/id.php?id=51367",
+        sourceLabel: "MGP",
+        order: 20,
+        advisers: [
+          {
+            id: "herbert-scarf",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=51367"
+          },
+          {
+            id: "samuel-karlin",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=51367"
+          }
+        ]
+      },
+      {
+        id: "willis-harman",
+        name: "Willis W. Harman",
+        degree: "PhD",
+        institution: "Stanford University",
+        country: "US",
+        year: 1948,
+        thesis: "Tunable Waveguide Cavity Resonators for Broadband Operation of Reflex Klystrons",
+        source: "https://www.mathgenealogy.org/id.php?id=74544",
+        sourceLabel: "MGP",
+        order: -30,
+        advisers: [{ id: "karl-spangenberg", relation: "doctoral" }]
+      },
+      {
+        id: "herbert-scarf",
+        name: "Herbert E. Scarf",
+        degree: "PhD",
+        institution: "Princeton University",
+        country: "US",
+        year: 1954,
+        thesis: "Differential Operators on Manifolds and Applications to Stochastic Processes",
+        source: "https://www.mathgenealogy.org/id.php?id=8119",
+        sourceLabel: "MGP",
+        order: 10,
+        advisers: [{ id: "salomon-bochner", relation: "doctoral" }]
+      },
+      {
+        id: "samuel-karlin",
+        name: "Samuel Karlin",
+        degree: "PhD",
+        institution: "Princeton University",
+        country: "US",
+        year: 1947,
+        thesis: "Independent Functions",
+        source: "https://www.mathgenealogy.org/id.php?id=8105",
+        sourceLabel: "MGP",
+        order: 30,
+        advisers: [{ id: "salomon-bochner", relation: "doctoral" }]
+      },
+      {
+        id: "karl-spangenberg",
+        name: "Karl Ralph Spangenberg",
+        degree: "PhD",
+        institution: "Ohio State University",
+        country: "US",
+        year: 1937,
+        thesis: "The Effect of Grid Current Flow Upon the Dynamic Characteristics of Vacuum Tube Power Amplifiers",
+        source: "https://www.mathgenealogy.org/id.php?id=76967",
+        sourceLabel: "MGP",
+        order: -35,
+        advisers: [{ id: "william-everitt", relation: "doctoral" }]
+      },
+      {
+        id: "salomon-bochner",
+        name: "Salomon Bochner",
+        degree: "PhD",
+        institution: "Friedrich-Wilhelms-Universität Berlin",
+        country: "DE",
+        year: 1921,
+        thesis: "Über orthogonale Systeme analytischer Funktionen",
+        source: "https://www.mathgenealogy.org/id.php?id=8038",
+        sourceLabel: "MGP",
+        order: 25,
+        advisers: [{ id: "erhard-schmidt", relation: "doctoral" }]
+      },
+      {
+        id: "william-everitt",
+        name: "William Littell Everitt",
+        degree: "PhD",
+        institution: "Ohio State University",
+        country: "US",
+        year: 1933,
+        thesis: "The Calculation and Design of Alternating Current Networks Employing Triodes Operating During a Portion of a Cycle",
+        source: "https://www.mathgenealogy.org/id.php?id=83975",
+        sourceLabel: "MGP",
+        order: -40,
+        advisers: [{ id: "frederic-blake", relation: "doctoral" }]
+      },
+      {
+        id: "erhard-schmidt",
+        name: "Erhard Schmidt",
+        degree: "PhD",
+        institution: "Georg-August-Universität Göttingen",
+        country: "DE",
+        year: 1905,
+        thesis: "Entwickelung willkürlicher Funktionen nach Systemen vorgeschriebener",
+        source: "https://www.mathgenealogy.org/id.php?id=7361",
+        sourceLabel: "MGP",
+        order: 25,
+        advisers: [{ id: "david-hilbert", relation: "doctoral" }]
+      },
+      {
+        id: "frederic-blake",
+        name: "Frederic Columbus Blake",
+        degree: "PhD",
+        institution: "Columbia University",
+        country: "US",
+        year: 1906,
+        thesis: "The Reflection and Transmission of Electric Waves by Screens of Resonators and by Grids",
+        source: "https://www.mathgenealogy.org/id.php?id=84005",
+        sourceLabel: "MGP",
+        order: -45,
+        advisers: [{ id: "ernest-nichols", relation: "doctoral" }]
+      },
+      {
+        id: "david-hilbert",
+        name: "David Hilbert",
+        degree: "PhD",
+        institution: "Universität Königsberg",
+        country: "DE",
+        year: 1885,
+        thesis: "Über invariante Eigenschaften specieller binärer Formen, insbesondere der Kugelfunctionen",
+        source: "https://www.mathgenealogy.org/id.php?id=7298",
+        sourceLabel: "MGP",
+        order: 25,
+        advisers: [
+          {
+            id: "ferdinand-lindemann",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=7298"
+          }
+        ]
+      },
+      {
+        id: "ernest-nichols",
+        name: "Ernest Fox Nichols",
+        degree: "DSc",
+        institution: "Cornell University",
+        country: "US",
+        year: 1897,
+        thesis: "Radiometric Researches in the Remote Infrared Spectrum",
+        source: "https://www.mathgenealogy.org/id.php?id=84012",
+        sourceLabel: "MGP",
+        order: -50,
+        advisers: [{ id: "edward-nichols", relation: "doctoral" }]
+      },
+      {
+        id: "ferdinand-lindemann",
+        name: "Carl Louis Ferdinand von Lindemann",
+        degree: "PhD",
+        institution: "Friedrich-Alexander-Universität Erlangen–Nürnberg",
+        country: "DE",
+        year: 1873,
+        thesis: "Über unendlich kleine Bewegungen und über Kraftsysteme bei allgemeiner projektivischer Maßbestimmung",
+        source: "https://www.mathgenealogy.org/id.php?id=7404",
+        sourceLabel: "MGP",
+        order: 10,
+        advisers: [{ id: "felix-klein", relation: "doctoral" }]
+      },
+      {
+        id: "edward-nichols",
+        name: "Edward Leamington Nichols",
+        degree: "PhD",
+        institution: "Georg-August-Universität Göttingen",
+        country: "DE",
+        year: 1879,
+        thesis: "Ueber das von glühendem Platin ausgestrahlte Licht: Ein Beitrag zur allgemeinen Ausstrahlungslehre",
+        source: "https://www.mathgenealogy.org/id.php?id=84010",
+        sourceLabel: "MGP",
+        order: -55,
+        advisers: [{ id: "johann-listing", relation: "doctoral" }]
+      },
+      {
+        id: "felix-klein",
+        name: "Felix Christian Klein",
+        degree: "PhD",
+        institution: "Rheinische Friedrich-Wilhelms-Universität Bonn",
+        country: "DE",
+        year: 1868,
+        thesis: "Ueber die Transformation der allgemeinen Gleichung des zweiten Grades zwischen Linien-Coordinaten auf eine canonische Form",
+        source: "https://www.mathgenealogy.org/id.php?id=7401",
+        sourceLabel: "MGP",
+        order: 5,
+        advisers: [
+          {
+            id: "julius-pluecker",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=7401"
+          },
+          {
+            id: "rudolf-lipschitz",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=7401"
+          }
+        ]
+      },
+      {
+        id: "johann-listing",
+        name: "Johann Benedict Listing",
+        degree: "PhD",
+        institution: "Georg-August-Universität Göttingen",
+        country: "DE",
+        year: 1834,
+        thesis: "De superficiebus secundi ordinis",
+        source: "https://www.mathgenealogy.org/id.php?id=19953",
+        sourceLabel: "MGP",
+        order: -60,
+        advisers: [{ id: "carl-gauss", relation: "doctoral" }]
+      },
+      {
+        id: "julius-pluecker",
+        name: "Julius Plücker",
+        degree: "PhD",
+        institution: "Philipps-Universität Marburg",
+        country: "DE",
+        year: 1823,
+        thesis: "Generalem analyseos applicationem ad ea quae geometriae altioris et mechanicae basis et fundamenta sunt e serie Tayloria deducit",
+        source: "https://www.mathgenealogy.org/id.php?id=7402",
+        sourceLabel: "MGP",
+        order: -5,
+        advisers: [{ id: "christian-gerling", relation: "doctoral" }]
+      },
+      {
+        id: "rudolf-lipschitz",
+        name: "Rudolf Otto Sigismund Lipschitz",
+        degree: "PhD",
+        institution: "Friedrich-Wilhelms-Universität Berlin",
+        country: "DE",
+        year: 1853,
+        thesis: "Determinatio status magnetici viribus inducentibus commoti in ellipsoide",
+        source: "https://www.mathgenealogy.org/id.php?id=19964",
+        sourceLabel: "MGP",
+        order: 15,
+        advisers: [
+          {
+            id: "gustav-dirichlet",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=19964"
+          },
+          {
+            id: "martin-ohm",
+            relation: "doctoral",
+            evidence: "https://www.mathgenealogy.org/id.php?id=19964"
+          }
+        ]
+      },
+      {
+        id: "christian-gerling",
+        name: "Christian Ludwig Gerling",
+        degree: "Dr. phil.",
+        institution: "Georg-August-Universität Göttingen",
+        country: "DE",
+        year: 1812,
+        thesis: "Methodi projectionis orthographicae usum ad calculos parallacticos facilitandos explicavit",
+        source: "https://www.mathgenealogy.org/id.php?id=29642",
+        sourceLabel: "MGP",
+        order: -8,
+        advisers: [{ id: "carl-gauss", relation: "doctoral" }]
+      },
+      {
+        id: "gustav-dirichlet",
+        name: "Gustav Peter Lejeune Dirichlet",
+        degree: "Honorary doctorate",
+        institution: "Rheinische Friedrich-Wilhelms-Universität Bonn",
+        country: "DE",
+        year: 1827,
+        thesis: "Partial Results on Fermat’s Last Theorem, Exponent 5",
+        source: "https://www.mathgenealogy.org/id.php?id=17946",
+        sourceLabel: "MGP",
+        advisers: []
+      },
+      {
+        id: "martin-ohm",
+        name: "Martin Ohm",
+        degree: "Dr. phil.",
+        institution: "Friedrich-Alexander-Universität Erlangen–Nürnberg",
+        country: "DE",
+        year: 1811,
+        thesis: "De elevatione serierum infinitarum secundi ordinis ad potestatem exponentis indeterminati",
+        source: "https://www.mathgenealogy.org/id.php?id=47064",
+        sourceLabel: "MGP",
+        order: 28,
+        advisers: [{ id: "karl-langsdorf", relation: "doctoral" }]
+      },
+      {
+        id: "carl-gauss",
+        name: "Carl Friedrich Gauß",
+        degree: "PhD",
+        institution: "Universität Helmstedt",
+        country: "DE",
+        year: 1799,
+        thesis: "Demonstratio nova theorematis omnem functionem algebraicam rationalem integram unius variabilis in factores reales primi vel secundi gradus resolvi posse",
+        source: "https://www.mathgenealogy.org/id.php?id=18231",
+        sourceLabel: "MGP",
+        order: -18,
+        advisers: [{ id: "johann-pfaff", relation: "doctoral" }]
+      },
+      {
+        id: "karl-langsdorf",
+        name: "Karl Christian von Langsdorf",
+        degree: "Dr. phil.",
+        institution: "Universität Erfurt",
+        country: "DE",
+        year: 1781,
+        source: "https://www.mathgenealogy.org/id.php?id=47025",
+        sourceLabel: "MGP",
+        order: 30,
+        advisers: []
+      },
+      {
+        id: "johann-pfaff",
+        name: "Johann Friedrich Pfaff",
+        degree: "Dr. phil.",
+        institution: "Georg-August-Universität Göttingen",
+        country: "DE",
+        year: 1786,
+        thesis: "Commentatio de ortibus et occasibus siderum apud auctores classicos commemoratis",
+        source: "https://www.mathgenealogy.org/id.php?id=18230",
+        sourceLabel: "MGP",
+        order: -20,
+        advisers: [{
+          id: "abraham-kaestner",
+          relation: "doctoral",
+          evidence: "https://www.mathgenealogy.org/id.php?id=18230"
+        }]
+      },
+      {
+        id: "abraham-kaestner",
+        name: "Abraham Gotthelf Kästner",
+        degree: "PhD",
+        institution: "Universität Leipzig",
+        country: "DE",
+        year: 1739,
+        thesis: "Theoria radicum in aequationibus",
+        source: "https://www.mathgenealogy.org/id.php?id=66476",
+        sourceLabel: "MGP",
+        order: -15,
+        advisers: [{
+          id: "christian-hausen",
+          relation: "doctoral",
+          evidence: "https://www.mathgenealogy.org/id.php?id=66476"
+        }]
+      },
+      {
+        id: "christian-hausen",
+        name: "Christian August Hausen",
+        degree: "Dr. phil.",
+        institution: "Martin-Luther-Universität Halle–Wittenberg",
+        country: "DE",
+        year: 1713,
+        thesis: "De corpore scissuris figurisque non cruetando ductu",
+        source: "https://www.mathgenealogy.org/id.php?id=57670",
+        sourceLabel: "MGP",
+        order: -18,
+        advisers: []
+      }
+    ];
+
+    const rootId = "yunbei-xu";
+    const horizontalGap = 54;
+    const verticalGap = 88;
+    const margin = 34;
+
+    const personById = new Map(people.map(person => [person.id, person]));
+    const nodesLayer = document.getElementById("nodes");
+    const edgeLayer = document.getElementById("edges");
+    const stage = document.getElementById("stage");
+    const viewport = document.getElementById("viewport");
+    const displayedRelations = new Set(["doctoral", "postdoctoral"]);
+    let hasCenteredInitially = false;
+
+    function listedAdvisers(person) {
+      return (person.advisers || []).filter(adviser => displayedRelations.has(adviser.relation || "doctoral"));
+    }
+
+    function relationLabel(relation) {
+      if (relation === "postdoctoral") return "postdoctoral adviser";
+      return "doctoral adviser";
+    }
+
+    function relationGroupLabel(relation, count) {
+      const plural = count > 1;
+      if (relation === "postdoctoral") return `Postdoctoral adviser${plural ? "s" : ""}`;
+      return `Doctoral adviser${plural ? "s" : ""}`;
+    }
+
+    function buildGraph() {
+      const reachable = new Set();
+      const edges = [];
+      const visit = id => {
+        if (reachable.has(id)) return;
+        const person = personById.get(id);
+        if (!person) throw new Error(`Missing person record: ${id}`);
+        reachable.add(id);
+        for (const adviser of listedAdvisers(person)) {
+          if (!personById.has(adviser.id)) throw new Error(`Missing adviser record: ${adviser.id}`);
+          edges.push({ from: id, to: adviser.id, relation: adviser.relation || "doctoral" });
+          visit(adviser.id);
+        }
+      };
+      visit(rootId);
+
+      const indegree = new Map([...reachable].map(id => [id, 0]));
+      const outgoing = new Map([...reachable].map(id => [id, []]));
+      const incoming = new Map([...reachable].map(id => [id, []]));
+      for (const edge of edges) {
+        indegree.set(edge.to, indegree.get(edge.to) + 1);
+        outgoing.get(edge.from).push(edge.to);
+        incoming.get(edge.to).push(edge.from);
+      }
+
+      const queue = [...reachable].filter(id => indegree.get(id) === 0);
+      const level = new Map([...reachable].map(id => [id, 0]));
+      let processed = 0;
+      while (queue.length) {
+        const id = queue.shift();
+        processed += 1;
+        for (const next of outgoing.get(id)) {
+          level.set(next, Math.max(level.get(next), level.get(id) + 1));
+          indegree.set(next, indegree.get(next) - 1);
+          if (indegree.get(next) === 0) queue.push(next);
+        }
+      }
+      if (processed !== reachable.size) throw new Error("The adviser data contain a cycle.");
+
+      const maxLevel = Math.max(...level.values());
+      const layers = Array.from({ length: maxLevel + 1 }, () => []);
+      for (const id of reachable) layers[level.get(id)].push(id);
+      for (const layer of layers) {
+        layer.sort((a, b) => (personById.get(a).order || 0) - (personById.get(b).order || 0));
+      }
+
+      // Repeated barycentric sweeps reduce crossings while retaining deterministic tie-breaking.
+      for (let sweep = 0; sweep < 8; sweep += 1) {
+        const indices = new Map();
+        layers.forEach(layer => layer.forEach((id, index) => indices.set(id, index)));
+        for (let depth = 1; depth < layers.length; depth += 1) {
+          layers[depth].sort((a, b) => {
+            const aChildren = incoming.get(a);
+            const bChildren = incoming.get(b);
+            const aBar = aChildren.length ? aChildren.reduce((sum, id) => sum + indices.get(id), 0) / aChildren.length : 0;
+            const bBar = bChildren.length ? bChildren.reduce((sum, id) => sum + indices.get(id), 0) / bChildren.length : 0;
+            return aBar - bBar || (personById.get(a).order || 0) - (personById.get(b).order || 0);
+          });
+          layers[depth].forEach((id, index) => indices.set(id, index));
+        }
+      }
+
+      return { reachable, edges, layers };
+    }
+
+    function isMgpSource(url) {
+      return typeof url === "string"
+        && /^https:\/\/www\.mathgenealogy\.org\/id\.php\?id=\d+$/.test(url);
+    }
+
+    function createCard(person) {
+      const card = document.createElement("article");
+      card.className = `person-node${person.id === rootId ? " root" : ""}`;
+      card.id = `person-${person.id}`;
+      card.setAttribute("role", "listitem");
+
+      const groupedAdvisers = new Map();
+      for (const adviser of listedAdvisers(person)) {
+        const relation = adviser.relation || "doctoral";
+        if (!groupedAdvisers.has(relation)) groupedAdvisers.set(relation, []);
+        groupedAdvisers.get(relation).push(adviser);
+      }
+      const thesis = person.thesis ? `<div class="thesis">${person.thesis}</div>` : "";
+      const note = person.note ? `<div class="relationship-note">${person.note}</div>` : "";
+      const adviserRows = [...groupedAdvisers.entries()].map(([relation, advisers]) => {
+        const names = advisers.map(adviser => {
+          const adviserPerson = personById.get(adviser.id);
+          const sources = [adviser.evidence, adviserPerson.source];
+          const evidence = sources.find(isMgpSource);
+          return evidence
+            ? `<a href="${evidence}" target="_blank" rel="noopener noreferrer">${adviserPerson.name}</a>`
+            : adviserPerson.name;
+        }).join(" · ");
+        return `<span><strong>${relationGroupLabel(relation, advisers.length)}:</strong> ${names}</span>`;
+      });
+      const adviserText = adviserRows.length
+        ? `<div class="advisers" aria-label="Recorded academic connections">${adviserRows.join("")}</div>`
+        : "";
+      const year = person.year ? `<span class="year">${person.year}</span>` : "";
+      const meta = [person.degree, person.institution, person.country].filter(Boolean).join(" · ");
+      const source = isMgpSource(person.source)
+        ? person.source
+        : "";
+      const sourceLinks = source
+        ? `<a class="source-tag" href="${source}" target="_blank" rel="noopener noreferrer">MGP</a>`
+        : "";
+      const personName = source
+        ? `<a class="name" href="${source}" target="_blank" rel="noopener noreferrer">${person.name}</a>`
+        : `<span class="name">${person.name}</span>`;
+
+      card.innerHTML = `
+        <div class="name-row">
+          ${personName}
+          ${year}
+        </div>
+        <div class="details">${meta}${sourceLinks}</div>
+        ${thesis}${note}${adviserText}
+      `;
+      return card;
+    }
+
+    function render() {
+      const nodeWidth = window.matchMedia("(max-width: 700px)").matches ? 286 : 330;
+      nodesLayer.replaceChildren();
+      edgeLayer.replaceChildren();
+      const graph = buildGraph();
+      const cards = new Map();
+
+      for (const id of graph.reachable) {
+        const card = createCard(personById.get(id));
+        nodesLayer.appendChild(card);
+        cards.set(id, card);
+      }
+
+      const layerHeights = graph.layers.map(layer => Math.max(...layer.map(id => cards.get(id).offsetHeight)));
+      const widestCount = Math.max(...graph.layers.map(layer => layer.length));
+      const depthById = new Map();
+      graph.layers.forEach((layer, depth) => layer.forEach(id => depthById.set(id, depth)));
+      const hasLongEdges = graph.edges.some(edge => depthById.get(edge.to) - depthById.get(edge.from) > 1);
+      const sideGutter = hasLongEdges ? 132 : 0;
+      const minimumContentWidth = margin * 2 + widestCount * nodeWidth + (widestCount - 1) * horizontalGap;
+      const contentWidth = Math.max(viewport.clientWidth - sideGutter * 2 - 2, minimumContentWidth);
+      const graphWidth = contentWidth + sideGutter * 2;
+      const yPositions = [];
+      let y = margin;
+      for (const height of layerHeights) {
+        yPositions.push(y);
+        y += height + verticalGap;
+      }
+      const graphHeight = y - verticalGap + margin;
+
+      stage.style.width = `${graphWidth}px`;
+      stage.style.height = `${graphHeight}px`;
+      edgeLayer.setAttribute("width", graphWidth);
+      edgeLayer.setAttribute("height", graphHeight);
+      edgeLayer.setAttribute("viewBox", `0 0 ${graphWidth} ${graphHeight}`);
+
+      const positions = new Map();
+      graph.layers.forEach((layer, depth) => {
+        const layerWidth = layer.length * nodeWidth + Math.max(0, layer.length - 1) * horizontalGap;
+        const startX = sideGutter + (contentWidth - layerWidth) / 2;
+        layer.forEach((id, index) => {
+          const card = cards.get(id);
+          const x = startX + index * (nodeWidth + horizontalGap);
+          const cardY = yPositions[depth] + (layerHeights[depth] - card.offsetHeight) / 2;
+          card.style.left = `${x}px`;
+          card.style.top = `${cardY}px`;
+          positions.set(id, { x, y: cardY, width: nodeWidth, height: card.offsetHeight });
+        });
+      });
+
+      const svgNS = "http://www.w3.org/2000/svg";
+      const gutterChannels = { left: 0, right: 0 };
+      for (const edge of graph.edges) {
+        const from = positions.get(edge.from);
+        const to = positions.get(edge.to);
+        const x1 = from.x + from.width / 2;
+        const y1 = from.y + from.height;
+        const x2 = to.x + to.width / 2;
+        const y2 = to.y;
+        const span = depthById.get(edge.to) - depthById.get(edge.from);
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("class", `edge ${edge.relation}`);
+        if (span > 1) {
+          // Long edges are routed through an outside gutter so they never pass behind
+          // intervening cards. The horizontal sections sit in the whitespace between layers.
+          const side = (x1 + x2) / 2 < graphWidth / 2 ? "left" : "right";
+          const channel = gutterChannels[side]++;
+          const gutterX = side === "left"
+            ? sideGutter - 24 - channel * 14
+            : graphWidth - sideGutter + 24 + channel * 14;
+          const leaveY = yPositions[depthById.get(edge.from)]
+            + layerHeights[depthById.get(edge.from)] + verticalGap * 0.42;
+          const enterY = yPositions[depthById.get(edge.to)] - verticalGap * 0.42;
+          path.setAttribute(
+            "d",
+            `M ${x1} ${y1} C ${x1} ${y1 + 16}, ${x1} ${leaveY - 12}, ${x1} ${leaveY} `
+              + `L ${gutterX} ${leaveY} L ${gutterX} ${enterY} L ${x2} ${enterY} `
+              + `C ${x2} ${enterY + 12}, ${x2} ${y2 - 16}, ${x2} ${y2}`
+          );
+        } else {
+          const bend = Math.max(34, (y2 - y1) * 0.46);
+          path.setAttribute("d", `M ${x1} ${y1} C ${x1} ${y1 + bend}, ${x2} ${y2 - bend}, ${x2} ${y2}`);
+        }
+        const title = document.createElementNS(svgNS, "title");
+        title.textContent = `${personById.get(edge.to).name}: ${relationLabel(edge.relation)} of ${personById.get(edge.from).name}`;
+        path.appendChild(title);
+        edgeLayer.appendChild(path);
+      }
+
+      document.getElementById("status").textContent = `${graph.reachable.size} people · ${graph.edges.length} links`;
+      if (!hasCenteredInitially) {
+        hasCenteredInitially = true;
+        requestAnimationFrame(centerRoot);
+      }
+    }
+
+    function centerRoot() {
+      const root = document.getElementById(`person-${rootId}`);
+      if (!root) return;
+      viewport.scrollTo({
+        left: Math.max(0, root.offsetLeft + root.offsetWidth / 2 - viewport.clientWidth / 2),
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    document.getElementById("centerButton").addEventListener("click", centerRoot);
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 120);
+    });
+
+    try {
+      render();
+    } catch (error) {
+      document.getElementById("status").textContent = error.message;
+      console.error(error);
+    }
+  </script>
+</body>
+</html>
